@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>C. Libres de Prefijos</title>
+        <script src="prefixFreeGen.js"></script>
+    </head>
+    <body>
+    <form id="myForm">       
+        <label>Alfabeto (X): </label>
+        <input id='alphInput' placeholder="e.g. 'abc'">
+        <br><br>
+        <label>Longitudes de código (L): </label>
+        <input id='longInput' placeholder="e.g. '1 2 3'">      
+        <br><br>
+        <input type="button" onclick="generate()" value="Generar">
+        <hr>
+    </form>
+
+    <h4 id="alphSize"></h4>
+    <h4 id="alph"></h4>
+    <h4 id="codeSize"></h4>
+    <h4 id="long"></h4>
+    <div id="codesDiv" style="border-style: solid;"></div>
+    </body>
+</html>
