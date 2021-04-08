@@ -36,6 +36,7 @@ function generate(){
     codesStr = ""
     for(let code of Codes)
             codesStr += String(code + "<br>");
+    document.getElementById("numSol").innerHTML = "Soluciones (#C's): " + String(cont); 
     document.getElementById("codesDiv").innerHTML = codesStr;
 }
 
@@ -61,7 +62,7 @@ function generateCode(u, i, l){
           return a.length - b.length || a.localeCompare(b);
         });
         //console.log(C);
-        Codes.add(C.slice());
+        Codes.add(String(C));
         cont++;
         return;
     }
