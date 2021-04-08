@@ -1,4 +1,4 @@
-let r, q, X, L, k, C, cont;
+let r, q, X, L, k, C;
 let tree, state, Codes;
 const N = 1000;
 function generate(){
@@ -36,7 +36,7 @@ function generate(){
     codesStr = ""
     for(let code of Codes)
             codesStr += String(code + "<br>");
-    document.getElementById("numSol").innerHTML = "Soluciones (#C's): " + String(cont); 
+    document.getElementById("numSol").innerHTML = "Soluciones(#C's): " + String(Codes.length);
     document.getElementById("codesDiv").innerHTML = codesStr;
 }
 
@@ -63,7 +63,6 @@ function generateCode(u, i, l){
         });
         //console.log(C);
         Codes.add(String(C));
-        cont++;
         return;
     }
     if(l==0){
