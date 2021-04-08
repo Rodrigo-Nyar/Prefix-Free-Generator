@@ -1,0 +1,3 @@
+# Prefix-Free-Generator
+Suponga que que X es el alfabeto (del) código y que tiene r símbolos.  Sean las longitudes 1≤l1≤…≤lq   Supongamos que dichas longitudes satisfacen la desigualdad de Kraft:  (es decir se puede construir un código instantáneo de esas longitudes)  ¿De cuántas formas podemos elegir las palabras código wi de modo que tengan longitud li y que el código sea instantáneo?  Al responder esta pregunta, también se responde la pregunta implícita ¿cuántos códigos instantáneos hay con esas condiciones (longitudes y aridad)?
+https://rodrigo-nyar.github.io/Prefix-Free-Generator/prefixFreeGen
