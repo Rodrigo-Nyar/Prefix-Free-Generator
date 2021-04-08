@@ -36,7 +36,7 @@ function generate(){
     codesStr = ""
     for(let code of Codes)
             codesStr += String(code + "<br>");
-    document.getElementById("numSol").innerHTML = "Soluciones(#C's): " + String(Codes.length);
+    document.getElementById("numSol").innerHTML = "Soluciones(#C's): " + String(Codes.size);
     document.getElementById("codesDiv").innerHTML = codesStr;
 }
 
