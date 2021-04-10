@@ -31,7 +31,7 @@ function generate(){
     document.getElementById("codeSize").innerHTML = "Tamaño del código(q): " + String(q);
     document.getElementById("long").innerHTML = "Longitudes (L): " + String(L);    
     initialize();    
-    generateCode(0,0,L[0]);
+    generateCode(0,0,L[0],"");
     console.log("# sol:", cont);
     codesStr = ""
     for(let code of Codes)
@@ -45,6 +45,9 @@ function initialize(){
     cont = 0;
     Codes = new Set();
     state = Array(N);
+    C = [];
+    for(let i=0;i<q;i++)
+        C.push("");
     for(let i=0;i<N;i++){
         state[i] = r;
         for(let j=0;j<r;j++){
@@ -54,13 +57,8 @@ function initialize(){
     k = 1;
 }
 
-function generateCode(u, i, l){
+function generateCode(u, i, l, str){
     if(i==q){
-        C = [];
-        dfs(0,"");
-        C.sort(function(a, b) {
-          return a.length - b.length || a.localeCompare(b);
-        });
         //console.log(C);
         Codes.add(String(C));
         return;
@@ -68,8 +66,9 @@ function generateCode(u, i, l){
     if(l==0){
         if(state[u]===r){
             state[u] = -1;
-            generateCode(0,i+1,L[i+1]);
-            state[u] = r;            
+            C[i] = str;
+            generateCode(0,i+1,L[i+1], "");
+            state[u] = r;         
         }    
         return;
     }
@@ -81,15 +80,16 @@ function generateCode(u, i, l){
             v = k;
             k++;
             tree[u][j] = v;
-            generateCode(v,i,l-1);
+            generateCode(v,i,l-1, str + X[j]);
             k--;
             tree[u][j] = -1;
         }else{
             v = tree[u][j];
-            generateCode(v,i,l-1);
+            generateCode(v,i,l-1, String + X[j]);
         }
     }
 }
+//deprecated
 function dfs(u, st){
     if(state[u] === -1){
         C.push(st);
