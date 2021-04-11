@@ -34,8 +34,11 @@ function generate(){
     generateCode(0,0,L[0],"");
     console.log("# sol:", cont);
     codesStr = ""
-    for(let code of Codes)
-            codesStr += String(code + "<br>");
+    for(let code of Codes){
+        for(let i = 0; i < q; i++)
+            codesStr += String(code[i] + " ");
+        codesStr += String("<br>");
+    }
     document.getElementById("numSol").innerHTML = "Soluciones(#C's): " + String(Codes.size);
     document.getElementById("codesDiv").innerHTML = codesStr;
 }
@@ -60,7 +63,7 @@ function initialize(){
 function generateCode(u, i, l, str){
     if(i==q){
         //console.log(C);
-        Codes.add(String(C));
+        Codes.add(C.slice());
         return;
     }
     if(l==0){
@@ -68,7 +71,7 @@ function generateCode(u, i, l, str){
             state[u] = -1;
             C[i] = str;
             generateCode(0,i+1,L[i+1], "");
-            state[u] = r;         
+            state[u] = r;  
         }    
         return;
     }
@@ -80,12 +83,12 @@ function generateCode(u, i, l, str){
             v = k;
             k++;
             tree[u][j] = v;
-            generateCode(v,i,l-1, str + X[j]);
+            generateCode(v,i,l-1, str + String(X[j]));
             k--;
             tree[u][j] = -1;
         }else{
             v = tree[u][j];
-            generateCode(v,i,l-1, String + X[j]);
+            generateCode(v,i,l-1, str + String(X[j]));
         }
     }
 }
@@ -97,7 +100,7 @@ function dfs(u, st){
     }
     for(let j=0;j<r;j++){
         if(tree[u][j] > -1){
-            dfs(tree[u][j], st + X[j]);
+            dfs(tree[u][j], st + String(X[j]));
         }
     }
 }
